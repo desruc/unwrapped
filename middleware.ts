@@ -1,5 +1,7 @@
+import next from "next";
 import { getToken } from "next-auth/jwt";
 import { withAuth } from "next-auth/middleware";
+import type { NextRequestWithAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
 export default withAuth(
@@ -17,8 +19,8 @@ export default withAuth(
       return null;
     }
 
-    if (!isAuthenticated) {
-      return NextResponse.redirect("/login");
+    if (!isAuthenticated || req.nextUrl.pathname === "/") {
+      return NextResponse.redirect(new URL("/login", req.url));
     }
   },
   {
@@ -34,5 +36,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login"],
+  matcher: ["/", "/dashboard/:path*", "/login"],
 };

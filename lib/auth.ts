@@ -1,26 +1,43 @@
 import { NextAuthOptions } from "next-auth";
 import type { JWT } from "next-auth/jwt";
 import SpotifyProvider from "next-auth/providers/spotify";
-import { SPOTIFY_LOGIN_URL } from "../config/spotify";
+import { spotifyApi, SPOTIFY_LOGIN_URL } from "./spotify";
 
 async function refreshAccessToken(token: JWT) {
-  // TODO: Refresh token
+  if (token.accessToken && token.refreshToken) {
+    try {
+      spotifyApi.setAccessToken(token.accessToken);
+      spotifyApi.setRefreshToken(token.refreshToken);
+
+      const { body: newTokens } = await spotifyApi.refreshAccessToken();
+
+      return {
+        ...token,
+        accessToken: newTokens.access_token,
+        accessTokenExpires: newTokens.expires_in * 1000,
+        refreshToken: newTokens.refresh_token ?? token.refreshToken
+      };
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return token;
 }
 
 export const authOptions: NextAuthOptions = {
   session: {
-    strategy: "jwt",
+    strategy: "jwt"
   },
   pages: {
-    signIn: "/login",
+    signIn: "/login"
   },
   providers: [
     SpotifyProvider({
-      clientId: process.env.CLIENT_ID ?? "No client id",
-      clientSecret: process.env.CLIENT_SECRET ?? "No client secret",
-      authorization: SPOTIFY_LOGIN_URL,
-    }),
+      clientId: process.env.NEXT_PUBLIC_CLIENT_ID ?? "No client id",
+      clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET ?? "No client secret",
+      authorization: SPOTIFY_LOGIN_URL
+    })
   ],
   callbacks: {
     async jwt({ token, account, user }) {
@@ -29,7 +46,7 @@ export const authOptions: NextAuthOptions = {
           ...token,
           accessToken: account.access_token,
           refreshToken: account.refresh_token,
-          accessTokenExpires: account.expires_at,
+          accessTokenExpires: (account.expires_at ?? 3600) * 1000
         };
       }
 
@@ -46,6 +63,6 @@ export const authOptions: NextAuthOptions = {
       }
 
       return session;
-    },
-  },
+    }
+  }
 };
