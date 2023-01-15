@@ -1,7 +1,5 @@
-import next from "next";
 import { getToken } from "next-auth/jwt";
 import { withAuth } from "next-auth/middleware";
-import type { NextRequestWithAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
 export default withAuth(
@@ -30,11 +28,11 @@ export default withAuth(
         // We return true here so that the middleware function above
         // is always called.
         return true;
-      },
-    },
+      }
+    }
   }
 );
 
 export const config = {
-  matcher: ["/", "/dashboard/:path*", "/login"],
+  matcher: ["/", "/dashboard/:path*", "/login"]
 };
