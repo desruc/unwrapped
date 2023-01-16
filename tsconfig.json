@@ -19,7 +19,8 @@
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
       "@/config/*": ["config/*"],
-      "@/hooks/*": ["hooks/*"]
+      "@/hooks/*": ["hooks/*"],
+      "@/styles/*": ["styles/*"]
     },
     "plugins": [
       {
