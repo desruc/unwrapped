@@ -1,5 +1,5 @@
 import AuthContext from "@/components/auth/AuthContext";
-import { SideNav } from "@/components/navigation/SideNav";
+import { SideNav } from "@/components/navigation/SideNav/SideNav";
 import { Footer } from "@/components/Footer";
 
 import "@/styles/globals.css";
