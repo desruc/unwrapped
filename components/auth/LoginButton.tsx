@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 
 export function LoginButton() {
   async function onLogin() {
-    await signIn("spotify", { callbackUrl: "/dashboard" });
+    await signIn("spotify", { callbackUrl: "/u/dashboard" });
   }
 
   return (

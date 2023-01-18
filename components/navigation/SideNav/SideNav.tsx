@@ -17,15 +17,19 @@ export function SideNav() {
   return (
     <nav className="flex flex-col w-[200px] bg-gray-800 p-4 items-center">
       <div className="flex flex-col flex-grow mt-4 w-full">
-        <NavLink href="/dashboard" icon={<MdOutlineDashboard />} label="Dashboard" />
         <NavLink
-          href="/top/artists"
+          href="/u/dashboard"
+          icon={<MdOutlineDashboard />}
+          label="Dashboard"
+        />
+        <NavLink
+          href="/u/top/artists"
           icon={<MdSentimentVerySatisfied />}
           label="Top artists"
         />
-        <NavLink href="/top/albums" icon={<MdOutlineAlbum />} label="Top albums" />
+        <NavLink href="/u/top/albums" icon={<MdOutlineAlbum />} label="Top albums" />
         <NavLink
-          href="/top/tracks"
+          href="/u/top/tracks"
           icon={<MdOutlineLibraryMusic />}
           label="Top tracks"
         />
