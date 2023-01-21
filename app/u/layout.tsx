@@ -1,4 +1,4 @@
-import { SideNav } from "@/components/navigation/SideNav/SideNav";
+import { SideNav } from "@/components/navigation/SideNav";
 import { Footer } from "@/components/Footer";
 
 export default function AuthenticatedLayout({
