@@ -2,8 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true,
+    appDir: true
   },
-}
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "platform-lookaside.fbsbx.com"
+      }
+    ]
+  }
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
