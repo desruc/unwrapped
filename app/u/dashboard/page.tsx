@@ -1,11 +1,11 @@
-import { Hero } from "@/components/Hero";
+import { TopArtists } from "@/components/dashboard/TopArtists";
 
 export default async function Dashboard() {
   return (
     <main>
       Dashboard
       {/* @ts-expect-error Async Server Component */}
-      <Hero />
+      <TopArtists />
     </main>
   );
 }
