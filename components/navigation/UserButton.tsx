@@ -51,7 +51,13 @@ export function UserButton({ drawerOpen }: Props) {
     >
       <div className="flex items-center">
         <div className={imageWrapClassName}>
-          <Image src={image} alt="Profile image" fill className="rounded-[50%]" />
+          <Image
+            src={image}
+            alt="Profile image"
+            fill
+            sizes="50%"
+            className="rounded-[50%]"
+          />
         </div>
       </div>
       {displayName && (

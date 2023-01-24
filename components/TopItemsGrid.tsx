@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-interface TopItem {
+export interface TopItem {
   id: string;
   title: string;
   imgSrc: string;
@@ -38,11 +38,25 @@ function ImageCard({ title, imgSrc, href }: ImageCardProps) {
             alt={title}
             src={imgSrc}
             fill
+            sizes="100%"
             style={{ objectFit: "cover" }}
             className="rounded-md"
           />
         </div>
       </div>
     </a>
+  );
+}
+
+export function TopItemsGridLoading({ items = 8 }: { items?: number }) {
+  return (
+    <div className="p-2 grid grid-cols-2 lg:grid-cols-4 gap-2">
+      {[...Array(items)].map((_, i) => (
+        <div
+          key={`loading-${i}`}
+          className="h-[0px] pb-[100%] w-full bg-gray-400 rounded-md"
+        />
+      ))}
+    </div>
   );
 }

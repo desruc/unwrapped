@@ -1,24 +1,30 @@
-import { TopArtists } from "@/components/dashboard/TopArtists";
-import { TopAlbums } from "@/components/dashboard/TopAlbums";
+import { TopAlbumsSection } from "@/components/dashboard/TopAlbumsSection";
+import { TopArtistsSection } from "@/components/dashboard/TopArtistsSection";
+import { getTopArtists, getTopTracks } from "@/lib/getAuthenticatedSpotifyApi";
+import { Suspense } from "react";
 
 export default async function Dashboard() {
   return (
     <main>
       Dashboard
-      <section className="mb-12">
-        <h2>Top Artists</h2>
-        <div className="rounded-lg bg-gray-800">
-          {/* @ts-expect-error Async Server Component */}
-          <TopArtists />
-        </div>
-      </section>
-      <section>
-        <h2>Top Albums</h2>
-        <div className="rounded-lg bg-gray-800">
-          {/* @ts-expect-error Async Server Component */}
-          <TopAlbums maxAlbums={8} timeRange="longTerm" />
-        </div>
-      </section>
+      <Suspense fallback={<div>Loading artists...</div>}>
+        {/* @ts-expect-error Async Server Component */}
+        <FeaturedArtists />
+      </Suspense>
+      <Suspense fallback={<div>Loading albums...</div>}>
+        {/* @ts-expect-error Async Server Component */}
+        <FeaturedAlbums />
+      </Suspense>
     </main>
   );
+}
+
+async function FeaturedArtists() {
+  const data = await getTopArtists(8);
+  return <TopArtistsSection data={data} />;
+}
+
+async function FeaturedAlbums() {
+  const data = await getTopTracks();
+  return <TopAlbumsSection data={data} />;
 }
