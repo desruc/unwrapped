@@ -1,5 +1,6 @@
 import { getAuthenticatedSpotifyApi } from "@/lib/getAuthenticatedSpotifyApi";
 import { Suspense } from "react";
+import { transformToTopItem } from "utils/transformToTopItem";
 import { TopItemsGrid } from "../TopItemsGrid";
 
 async function getTopArtists(limit = 50) {
@@ -21,18 +22,10 @@ async function getTopArtists(limit = 50) {
   });
 
   return {
-    longTerm: (await longTermRequest).body,
-    mediumTerm: (await mediumTermRequest).body,
-    shortTerm: (await shortTermRequest).body
+    longTerm: (await longTermRequest).body.items,
+    mediumTerm: (await mediumTermRequest).body.items,
+    shortTerm: (await shortTermRequest).body.items
   };
-}
-
-function transformToTopItem(artists: SpotifyApi.ArtistObjectFull[]) {
-  return artists.map((a) => ({
-    id: a.id,
-    title: a.name,
-    imgSrc: a.images[0].url
-  }));
 }
 
 export async function TopArtists() {
@@ -47,5 +40,5 @@ export async function TopArtists() {
 async function TopArtistsInner() {
   const data = await getTopArtists(8);
 
-  return <TopItemsGrid items={transformToTopItem(data.longTerm.items)} />;
+  return <TopItemsGrid items={transformToTopItem(data.longTerm)} />;
 }

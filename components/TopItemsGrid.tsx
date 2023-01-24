@@ -12,7 +12,7 @@ interface Props {
 
 export function TopItemsGrid({ items }: Props) {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="p-2 grid grid-cols-2 lg:grid-cols-4 gap-2">
       {items.map((i) => (
         <ImageCard key={i.id} title={i.title} imgSrc={i.imgSrc} />
       ))}
