@@ -27,7 +27,9 @@ export function TopAlbumsSection({ data }: Props) {
       <div className="rounded-lg bg-gray-800">
         <TopItemsGrid items={transformToTopItem(albums.slice(0, 8))} />
       </div>
-      <Link href="/u/top/artists">See more</Link>
+      <div className="flex justify-end my-4">
+        <Link href="/u/top/albums">See more →</Link>
+      </div>
     </section>
   );
 }

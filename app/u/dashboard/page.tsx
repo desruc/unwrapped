@@ -1,5 +1,6 @@
 import { TopAlbumsSection } from "@/components/dashboard/TopAlbumsSection";
 import { TopArtistsSection } from "@/components/dashboard/TopArtistsSection";
+import { TopItemsLoading } from "@/components/dashboard/TopItemsLoading";
 import { getTopArtists, getTopTracks } from "@/lib/getAuthenticatedSpotifyApi";
 import { Suspense } from "react";
 
@@ -7,11 +8,11 @@ export default async function Dashboard() {
   return (
     <main>
       Dashboard
-      <Suspense fallback={<div>Loading artists...</div>}>
+      <Suspense fallback={<TopItemsLoading title="Top artists" />}>
         {/* @ts-expect-error Async Server Component */}
         <FeaturedArtists />
       </Suspense>
-      <Suspense fallback={<div>Loading albums...</div>}>
+      <Suspense fallback={<TopItemsLoading title="Top albums" />}>
         {/* @ts-expect-error Async Server Component */}
         <FeaturedAlbums />
       </Suspense>

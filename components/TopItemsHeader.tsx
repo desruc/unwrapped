@@ -1,18 +1,24 @@
 import type { TimeRange } from "@/lib/getAuthenticatedSpotifyApi";
+import type { ReactNode } from "react";
 
-export function TopItemsHeader({
-  title,
-  timeRange,
-  setTimeRange
-}: {
-  title: string;
+interface Props {
+  title?: string | ReactNode;
   timeRange: TimeRange;
   setTimeRange: (range: TimeRange) => void;
-}) {
-  return (
-    <div className="flex justify-between">
+}
+
+export function TopItemsHeader({ title, timeRange, setTimeRange }: Props) {
+  const computedTitle =
+    typeof title === "string" ? (
       <h2 className="text-2xl font-bold">{title}</h2>
-      <div>
+    ) : (
+      title
+    );
+
+  return (
+    <div className="flex justify-between mb-4">
+      {computedTitle}
+      <div className="flex items-center">
         <button
           onClick={() => setTimeRange("short")}
           className={timeRange === "short" ? "font-bold" : ""}
