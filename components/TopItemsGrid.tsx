@@ -4,6 +4,7 @@ export interface TopItem {
   id: string;
   title: string;
   imgSrc: string;
+  href?: string;
 }
 
 interface Props {
@@ -14,7 +15,7 @@ export function TopItemsGrid({ items }: Props) {
   return (
     <div className="p-2 grid grid-cols-2 lg:grid-cols-4 gap-2">
       {items.map((i) => (
-        <ImageCard key={i.id} title={i.title} imgSrc={i.imgSrc} />
+        <ImageCard key={i.id} title={i.title} imgSrc={i.imgSrc} href={i.href} />
       ))}
     </div>
   );
@@ -28,7 +29,7 @@ interface ImageCardProps {
 
 function ImageCard({ title, imgSrc, href }: ImageCardProps) {
   return (
-    <a className="relative" href={href} target="_blank" rel="noreferrer">
+    <a className="relative" href={href}>
       <div className="absolute z-10 transition-all opacity-0 hover:opacity-100 h-full w-full p-2 flex items-end bg-black/50">
         <h3 className="text-2xl font-bold tracking-wide">{title}</h3>
       </div>

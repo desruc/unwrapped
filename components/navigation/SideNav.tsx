@@ -35,7 +35,7 @@ export function SideNav() {
           <h2 className={titleClassName}>unwrapped.</h2>
           <button
             onClick={toggleDrawer}
-            className="text-2xl p-2 rounded-lg transition-all hover:bg-gray-900 hover:shadow-md"
+            className="text-2xl p-2 rounded-lg transition-colors hover:bg-gray-900 hover:shadow-md"
             title="Toggle drawer"
           >
             {open ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}

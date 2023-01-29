@@ -25,7 +25,7 @@ export function TopAlbumsSection({ data }: Props) {
         setTimeRange={setTimeRange}
       />
       <div className="rounded-lg bg-gray-800">
-        <TopItemsGrid items={transformToTopItem(albums.slice(0, 8))} />
+        <TopItemsGrid items={transformToTopItem(albums.slice(0, 8), "/u/album")} />
       </div>
       <div className="flex justify-end my-4">
         <Link href="/u/top/albums">See more →</Link>

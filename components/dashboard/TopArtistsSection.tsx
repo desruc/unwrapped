@@ -22,7 +22,7 @@ export function TopArtistsSection({ data }: Props) {
         setTimeRange={setTimeRange}
       />
       <div className="rounded-lg bg-gray-800">
-        <TopItemsGrid items={transformToTopItem(data[range])} />
+        <TopItemsGrid items={transformToTopItem(data[range], "/u/artist")} />
       </div>
       <div className="flex justify-end my-4">
         <Link href="/u/top/artists">See more →</Link>
