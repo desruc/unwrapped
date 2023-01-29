@@ -7,4 +7,9 @@
         @apply bg-gray-900;
         @apply text-gray-400;
     }
+
+    a {
+        @apply transition-colors;
+        @apply hover:text-green-400;
+    }
 }

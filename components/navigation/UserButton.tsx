@@ -47,11 +47,17 @@ export function UserButton({ drawerOpen }: Props) {
   return (
     <div
       title="User"
-      className="grid grid-cols-[auto_1fr] gap-3 w-full px-2 py-3 rounded-lg cursor-pointer transition-all hover:bg-gray-900 hover:shadow-md"
+      className="grid grid-cols-[auto_1fr] gap-3 w-full px-2 py-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-900 hover:shadow-md"
     >
       <div className="flex items-center">
         <div className={imageWrapClassName}>
-          <Image src={image} alt="Profile image" fill className="rounded-[50%]" />
+          <Image
+            src={image}
+            alt="Profile image"
+            fill
+            sizes="50%"
+            className="rounded-[50%]"
+          />
         </div>
       </div>
       {displayName && (
