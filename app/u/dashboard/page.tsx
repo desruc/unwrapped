@@ -39,5 +39,5 @@ async function FeaturedArtists() {
 
 async function FeaturedAlbums() {
   const data = await getTopTracks();
-  return <TopAlbumsSection data={data} />;
+  return <TopAlbumsSection data={data} albumsToShow={8} />;
 }

@@ -9,9 +9,10 @@ import { TopItemsHeader } from "../TopItemsHeader";
 
 interface Props {
   data: Record<TimeRange, SpotifyApi.ArtistObjectFull[]>;
+  hideFooter?: boolean;
 }
 
-export function TopArtistsSection({ data }: Props) {
+export function TopArtistsSection({ data, hideFooter }: Props) {
   const [range, setTimeRange] = useState<TimeRange>("short");
 
   return (
@@ -24,9 +25,11 @@ export function TopArtistsSection({ data }: Props) {
       <div className="rounded-lg bg-gray-800">
         <TopItemsGrid items={transformToTopItem(data[range], "/u/artist")} />
       </div>
-      <div className="flex justify-end my-4">
-        <Link href="/u/top/artists">See more →</Link>
-      </div>
+      {!hideFooter && (
+        <div className="flex justify-end my-4">
+          <Link href="/u/top/artists">See more →</Link>
+        </div>
+      )}
     </section>
   );
 }
