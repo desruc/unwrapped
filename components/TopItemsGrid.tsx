@@ -26,11 +26,10 @@ export function TopItemsGrid({ items }: Props) {
 interface ImageCardProps {
   title: string;
   imgSrc: string;
-  placeholderImgSrc?: string;
   href?: string;
 }
 
-function ImageCard({ title, imgSrc, placeholderImgSrc, href }: ImageCardProps) {
+function ImageCard({ title, imgSrc, href }: ImageCardProps) {
   return (
     <a className="relative" href={href}>
       <div className="absolute z-10 transition-all opacity-0 hover:opacity-100 h-full w-full p-2 flex items-end bg-black/50">
