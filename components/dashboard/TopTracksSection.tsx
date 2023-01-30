@@ -37,7 +37,7 @@ export function TopTracksSectionLoading() {
       <div className="rounded-lg bg-gray-800">
         <div className="grid grid-cols-2 gap-2 p-2 mb-12">
           {[...Array(10)].map((_, i) => (
-            <div key={`loading-${i}`} className="h-[64px] w-full bg-gray-400" />
+            <div key={`loading-${i}`} className="h-[65px] w-full bg-gray-400" />
           ))}
         </div>
       </div>
