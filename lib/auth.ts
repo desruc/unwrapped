@@ -32,6 +32,7 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/login"
   },
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     SpotifyProvider({
       clientId: process.env.NEXT_PUBLIC_CLIENT_ID ?? "No client id",
