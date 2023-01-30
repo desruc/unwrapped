@@ -17,7 +17,7 @@ module.exports = {
         ...colors
       },
       fontFamily: {
-        sans: ["var(--font-gotham)", ...defaultTheme.fontFamily.sans]
+        sans: ["var(--font-figtree)", ...defaultTheme.fontFamily.sans]
       }
     }
   }
