@@ -67,3 +67,9 @@ export async function getTopArtists(
     long: (await longTermRequest).body.items
   };
 }
+
+export async function getAlbum(id: string): Promise<SpotifyApi.SingleAlbumResponse> {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getAlbum(id);
+  return body;
+}
