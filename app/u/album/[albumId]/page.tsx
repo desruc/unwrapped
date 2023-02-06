@@ -7,6 +7,7 @@ import { groupAlbumTracksByDisc } from "utils/groupAlbumTracksByDisc";
 
 import { MdOutlineAlbum } from "react-icons/md";
 import { formatDuration } from "utils/formatDuration";
+import { AlbumTrack } from "@/components/album/AlbumTrack";
 
 interface Props {
   params: { albumId: string };
@@ -31,7 +32,7 @@ export default async function AlbumPage({ params }: Props) {
           <span className="text-xs font-bold mb-2">
             {album.album_type.toUpperCase()}
           </span>
-          <h2 className="text-6xl font-bold mb-6">{album.name}</h2>
+          <h2 className="text-2xl xl:text-6xl font-bold mb-6">{album.name}</h2>
           <div className="text-sm mb-2">
             {album.artists.map(({ id: artistId, name: artistName }) => (
               <span key={artistId}>
@@ -66,18 +67,7 @@ export default async function AlbumPage({ params }: Props) {
               )}
               <ul>
                 {tracks.map((track) => (
-                  <li
-                    key={track.id}
-                    className="[&:not(:last-child)]:border-b-[1px] border-gray-400 transition-colors hover:border-b-green-400"
-                  >
-                    <Link
-                      href={`/u/track/${track.id}`}
-                      className="flex justify-between p-2"
-                    >
-                      <span>{track.name}</span>
-                      <span>{formatDuration(track.duration_ms)}</span>
-                    </Link>
-                  </li>
+                  <AlbumTrack key={track.id} track={track} />
                 ))}
               </ul>
             </div>
