@@ -2,7 +2,8 @@ import AuthContext from "@/components/auth/AuthContext";
 import { Figtree } from "@next/font/google";
 
 const figtree = Figtree({
-  variable: "--font-figtree"
+  variable: "--font-figtree",
+  subsets: ["latin"]
 });
 
 import "@/styles/globals.css";
