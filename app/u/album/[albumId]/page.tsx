@@ -1,8 +1,12 @@
 import { getAlbum } from "@/lib/getAuthenticatedSpotifyApi";
 import Image from "next/image";
 import Link from "next/link";
-import { formatDuration } from "utils/formatDuration";
+
 import { getAlbumDuration } from "utils/getAlbumDuration";
+import { groupAlbumTracksByDisc } from "utils/groupAlbumTracksByDisc";
+
+import { MdOutlineAlbum } from "react-icons/md";
+import { formatDuration } from "utils/formatDuration";
 
 interface Props {
   params: { albumId: string };
@@ -10,6 +14,9 @@ interface Props {
 
 export default async function AlbumPage({ params }: Props) {
   const album = await getAlbum(params.albumId);
+
+  const groupedTracks = groupAlbumTracksByDisc(album.tracks.items);
+  const isSingleDisc = Object.keys(groupedTracks).length === 1;
 
   return (
     <main>
@@ -46,22 +53,36 @@ export default async function AlbumPage({ params }: Props) {
         </div>
       </section>
       <section className="mb-12">
-        <ul>
-          {album.tracks.items.map((track) => (
-            <li
-              key={track.id}
-              className="[&:not(:last-child)]:border-b-[1px] border-gray-400 transition-colors hover:border-b-green-400"
-            >
-              <Link
-                href={`/u/track/${track.id}`}
-                className="flex justify-between p-2"
-              >
-                <span>{track.name}</span>
-                <span>{formatDuration(track.duration_ms)}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {Object.keys(groupedTracks).map((disc) => {
+          const tracks = groupedTracks[Number(disc)];
+
+          return (
+            <div key={`disc-${disc}`} className="mb-4">
+              {!isSingleDisc && (
+                <div className="flex items-center mb-4">
+                  <MdOutlineAlbum />
+                  <span className="ml-2 font-semibold">Disc {disc}</span>
+                </div>
+              )}
+              <ul>
+                {tracks.map((track) => (
+                  <li
+                    key={track.id}
+                    className="[&:not(:last-child)]:border-b-[1px] border-gray-400 transition-colors hover:border-b-green-400"
+                  >
+                    <Link
+                      href={`/u/track/${track.id}`}
+                      className="flex justify-between p-2"
+                    >
+                      <span>{track.name}</span>
+                      <span>{formatDuration(track.duration_ms)}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </section>
     </main>
   );
