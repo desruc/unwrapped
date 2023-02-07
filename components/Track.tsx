@@ -36,7 +36,10 @@ export function Track({ track }: TrackProps) {
           <p className="font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
             {track.name}
           </p>
-          <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">
+          <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">
+            {track.explicit && (
+              <span className="p-1 bg-gray-900 rounded-md mr-2">E</span>
+            )}
             {track.artists &&
               track.artists.map((artist, i) => (
                 <Link
@@ -44,7 +47,7 @@ export function Track({ track }: TrackProps) {
                   href={`/u/artist/${artist.id}`}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="text-xs">
+                  <span>
                     {artist.name}
                     {track.artists.length > 0 && i === track.artists.length - 1
                       ? ""
@@ -58,7 +61,7 @@ export function Track({ track }: TrackProps) {
               href={`/u/album/${track.album.id}`}
               onClick={(e) => e.stopPropagation()}
             >
-              <span className="text-xs">{track.album.name}</span>
+              <span>{track.album.name}</span>
             </Link>
           </div>
         </div>

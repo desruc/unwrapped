@@ -73,3 +73,36 @@ export async function getAlbum(id: string): Promise<SpotifyApi.SingleAlbumRespon
   const { body } = await spotifyApi.getAlbum(id);
   return body;
 }
+
+export async function getArtist(
+  id: string
+): Promise<SpotifyApi.SingleArtistResponse> {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getArtist(id);
+  return body;
+}
+
+export async function getArtistAlbums(
+  id: string,
+  country?: string,
+  groups?: string
+) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getArtistAlbums(id, {
+    country,
+    include_groups: groups
+  });
+  return body.items;
+}
+
+export async function getArtistPopularTracks(artistId: string) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getArtistTopTracks(artistId, "AU");
+  return body.tracks;
+}
+
+export async function getRelatedArtists(artistId: string) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getArtistRelatedArtists(artistId);
+  return body.artists;
+}
