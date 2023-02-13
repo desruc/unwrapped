@@ -6,8 +6,8 @@ import { getAlbumDuration } from "utils/getAlbumDuration";
 import { groupAlbumTracksByDisc } from "utils/groupAlbumTracksByDisc";
 
 import { MdOutlineAlbum } from "react-icons/md";
-import { formatDuration } from "utils/formatDuration";
 import { AlbumTrack } from "@/components/album/AlbumTrack";
+import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 interface Props {
   params: { albumId: string };
@@ -27,6 +27,8 @@ export default async function AlbumPage({ params }: Props) {
           width={album.images[1].width}
           height={album.images[1].height}
           alt="Album cover"
+          placeholder="blur"
+          blurDataURL={getBlurDataUrl()}
         />
         <div className="flex flex-col justify-end">
           <span className="text-xs font-bold mb-2">

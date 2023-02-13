@@ -106,3 +106,15 @@ export async function getRelatedArtists(artistId: string) {
   const { body } = await spotifyApi.getArtistRelatedArtists(artistId);
   return body.artists;
 }
+
+export async function getTrack(trackId: string) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getTrack(trackId);
+  return body;
+}
+
+export async function getSimilarTracks(trackId: string) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getRecommendations({ seed_tracks: [trackId] });
+  return body.tracks;
+}

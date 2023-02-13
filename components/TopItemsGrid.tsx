@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 export interface TopItem {
   id: string;
@@ -44,6 +45,8 @@ function ImageCard({ title, imgSrc, href }: ImageCardProps) {
             sizes="100%"
             style={{ objectFit: "cover" }}
             className="rounded-md"
+            placeholder="blur"
+            blurDataURL={getBlurDataUrl()}
           />
         </div>
       </div>

@@ -20,7 +20,7 @@ export function NavLink({ href, icon, label, open }: Props) {
   const className = clsx(
     "flex items-center [&:not(:first-child)]:mt-2 pr-2 w-full rounded-lg transition-all hover:bg-gray-900 hover:shadow-md hover:font-semibold",
     {
-      "bg-gray-900 shadow-md": active
+      "bg-gray-900 shadow-md text-green-400": active
     }
   );
 

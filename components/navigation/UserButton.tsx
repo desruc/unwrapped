@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 interface Props {
   drawerOpen: boolean;
@@ -57,6 +58,8 @@ export function UserButton({ drawerOpen }: Props) {
             fill
             sizes="50%"
             className="rounded-[50%]"
+            placeholder="blur"
+            blurDataURL={getBlurDataUrl()}
           />
         </div>
       </div>

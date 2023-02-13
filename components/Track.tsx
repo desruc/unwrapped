@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { formatDuration } from "utils/formatDuration";
+import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 interface TrackProps {
-  track: SpotifyApi.TrackObjectFull;
+  track: SpotifyApi.TrackObjectFull | SpotifyApi.RecommendationTrackObject;
 }
 
 export function Track({ track }: TrackProps) {
@@ -30,6 +31,8 @@ export function Track({ track }: TrackProps) {
             sizes="100%"
             style={{ objectFit: "cover" }}
             className="rounded-sm"
+            placeholder="blur"
+            blurDataURL={getBlurDataUrl()}
           />
         </div>
         <div className="overflow-hidden">

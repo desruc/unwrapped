@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 interface Props {
   image: SpotifyApi.ImageObject;
@@ -22,6 +23,8 @@ export function Card({ image, title, description, href, roundImage }: Props) {
             alt={title}
             className={roundImage ? "rounded-full" : "rounded-sm"}
             style={{ objectFit: "cover" }}
+            placeholder="blur"
+            blurDataURL={getBlurDataUrl()}
           />
         </div>
         <h3 className="font-semibold mb-1 overflow-hidden overflow-ellipsis whitespace-nowrap">
