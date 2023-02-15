@@ -4,7 +4,7 @@ import { TopItemsGrid } from "@/components/TopItemsGrid";
 import type { TimeRange } from "@/lib/getAuthenticatedSpotifyApi";
 import Link from "next/link";
 import { useState } from "react";
-import { transformToTopItem } from "utils/transformToTopItem";
+import { transformArtistsToTopItems } from "utils/transformToTopItem";
 import { TopItemsHeader } from "../TopItemsHeader";
 
 interface Props {
@@ -23,7 +23,7 @@ export function TopArtistsSection({ data, hideFooter }: Props) {
         setTimeRange={setTimeRange}
       />
       <div className="rounded-lg bg-gray-800">
-        <TopItemsGrid items={transformToTopItem(data[range], "/u/artist")} />
+        <TopItemsGrid items={transformArtistsToTopItems(data[range])} />
       </div>
       {!hideFooter && (
         <div className="flex justify-end my-4">

@@ -5,7 +5,7 @@ import type { TimeRange } from "@/lib/getAuthenticatedSpotifyApi";
 import Link from "next/link";
 import { useState } from "react";
 import { getTopAlbumsFromTracks } from "utils/getTopAlbums";
-import { transformToTopItem } from "utils/transformToTopItem";
+import { transformAlbumsToTopItems } from "utils/transformToTopItem";
 import { TopItemsHeader } from "../TopItemsHeader";
 
 interface Props {
@@ -28,7 +28,7 @@ export function TopAlbumsSection({ data, albumsToShow, hideFooter }: Props) {
       />
       <div className="rounded-lg bg-gray-800">
         <TopItemsGrid
-          items={transformToTopItem(albums.slice(0, albumsToShow), "/u/album")}
+          items={transformAlbumsToTopItems(albums.slice(0, albumsToShow))}
         />
       </div>
       {!hideFooter && (

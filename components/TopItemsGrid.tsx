@@ -42,7 +42,7 @@ interface ImageCardProps {
 function ImageCard({ title, subtitle, imgSrc, href }: ImageCardProps) {
   return (
     <Link className="relative !text-white" href={href}>
-      <div className="absolute z-10 transition-all opacity-0 hover:opacity-100 h-full w-full p-2 flex items-end bg-black/50">
+      <div className="absolute z-10 transition-all opacity-0 hover:opacity-100 h-full w-full p-2 flex flex-col justify-end bg-black/60">
         <h3 className="text-2xl font-bold tracking-wide">{title}</h3>
         {subtitle && (
           <h4 className="text-sm text-green-400 font-semibold tracking-wide">

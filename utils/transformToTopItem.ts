@@ -1,16 +1,30 @@
 import { sortBy } from "lodash";
 
-export function transformToTopItem<
-  T extends { id: string; name: string; images: SpotifyApi.ImageObject[] }
->(data: T[], hrefBase?: string) {
-  return data.map((d) => {
-    const sortedImages = sortBy(d.images, "height");
+export function transformArtistsToTopItems(artists: SpotifyApi.ArtistObjectFull[]) {
+  return artists.map((a) => {
+    const sortedImages = sortBy(a.images, "height");
 
     return {
-      id: d.id,
-      title: d.name,
+      id: a.id,
+      title: a.name,
       imgSrc: sortedImages[sortedImages.length - 1].url,
-      href: hrefBase ? `${hrefBase}/${d.id}` : undefined
+      href: `/artist/${a.id}`
+    };
+  });
+}
+
+export function transformAlbumsToTopItems(
+  albums: SpotifyApi.AlbumObjectFull[] | SpotifyApi.AlbumObjectSimplified[]
+) {
+  return albums.map((a) => {
+    const sortedImages = sortBy(a.images, "height");
+
+    return {
+      id: a.id,
+      title: a.name,
+      subtitle: a.artists.map((a) => a.name).join(", "),
+      imgSrc: sortedImages[sortedImages.length - 1].url,
+      href: `/album/${a.id}`
     };
   });
 }
