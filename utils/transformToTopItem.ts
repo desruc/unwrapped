@@ -8,7 +8,7 @@ export function transformArtistsToTopItems(artists: SpotifyApi.ArtistObjectFull[
       id: a.id,
       title: a.name,
       imgSrc: sortedImages[sortedImages.length - 1].url,
-      href: `/artist/${a.id}`
+      href: `/u/artist/${a.id}`
     };
   });
 }
@@ -24,7 +24,7 @@ export function transformAlbumsToTopItems(
       title: a.name,
       subtitle: a.artists.map((a) => a.name).join(", "),
       imgSrc: sortedImages[sortedImages.length - 1].url,
-      href: `/album/${a.id}`
+      href: `/u/album/${a.id}`
     };
   });
 }
