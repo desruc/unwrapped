@@ -16,9 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="w-full min-h-[100vh]">
+      <body className="min-h-[100vh] overflow-x-hidden">
         <AuthContext>
-          <div className="flex">{children}</div>
+          <div className="relative flex">{children}</div>
         </AuthContext>
       </body>
     </html>

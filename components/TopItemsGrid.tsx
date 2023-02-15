@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 export interface TopItem {
   id: string;
   title: string;
+  subtitle?: string;
   imgSrc: string;
-  href?: string;
+  href: string;
 }
 
 interface Props {
@@ -18,7 +20,13 @@ export function TopItemsGrid({ items }: Props) {
   return (
     <div className="p-2 grid grid-cols-2 lg:grid-cols-4 gap-2">
       {items.map((i) => (
-        <ImageCard key={i.id} title={i.title} imgSrc={i.imgSrc} href={i.href} />
+        <ImageCard
+          key={i.id}
+          title={i.title}
+          subtitle={i.subtitle}
+          imgSrc={i.imgSrc}
+          href={i.href}
+        />
       ))}
     </div>
   );
@@ -26,15 +34,21 @@ export function TopItemsGrid({ items }: Props) {
 
 interface ImageCardProps {
   title: string;
+  subtitle?: string;
   imgSrc: string;
-  href?: string;
+  href: string;
 }
 
-function ImageCard({ title, imgSrc, href }: ImageCardProps) {
+function ImageCard({ title, subtitle, imgSrc, href }: ImageCardProps) {
   return (
-    <a className="relative" href={href}>
+    <Link className="relative !text-white" href={href}>
       <div className="absolute z-10 transition-all opacity-0 hover:opacity-100 h-full w-full p-2 flex items-end bg-black/50">
         <h3 className="text-2xl font-bold tracking-wide">{title}</h3>
+        {subtitle && (
+          <h4 className="text-sm text-green-400 font-semibold tracking-wide">
+            {subtitle}
+          </h4>
+        )}
       </div>
       <div className="h-[0px] pb-[100%] w-full">
         <div className="h-full w-full absolute">
@@ -50,7 +64,7 @@ function ImageCard({ title, imgSrc, href }: ImageCardProps) {
           />
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

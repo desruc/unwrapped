@@ -9,8 +9,8 @@ export default function AuthenticatedLayout({
   return (
     <>
       <SideNav />
-      <div className="flex-grow px-4 py-8">
-        <div className="container">{children}</div>
+      <div className="flex-grow px-4 py-12">
+        <div>{children}</div>
         <Footer />
       </div>
     </>

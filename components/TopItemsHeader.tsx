@@ -1,7 +1,6 @@
 import type { TimeRange } from "@/lib/getAuthenticatedSpotifyApi";
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { Tooltip } from "./Tooltip";
 
 interface Props {
   title?: string | ReactNode;
@@ -22,39 +21,30 @@ export function TopItemsHeader({ title, timeRange, setTimeRange }: Props) {
       "text-green-400": timeRange === range
     });
 
-  const buttonClassName =
-    "mx-1 tracking-wide font-semibold transition-colors hover:text-green-400";
-
   return (
     <div className="flex justify-between mb-4">
       {computedTitle}
       <div className="flex items-center">
-        <Tooltip text="last 4 weeks">
-          <button
-            onClick={() => setTimeRange("short")}
-            className={getButtonClassName("short")}
-          >
-            short
-          </button>
-        </Tooltip>
+        <button
+          onClick={() => setTimeRange("short")}
+          className={getButtonClassName("short")}
+        >
+          short
+        </button>
         |
-        <Tooltip text="last 6 months">
-          <button
-            onClick={() => setTimeRange("medium")}
-            className={getButtonClassName("medium")}
-          >
-            medium
-          </button>
-        </Tooltip>
+        <button
+          onClick={() => setTimeRange("medium")}
+          className={getButtonClassName("medium")}
+        >
+          medium
+        </button>
         |
-        <Tooltip text="last several years">
-          <button
-            onClick={() => setTimeRange("long")}
-            className={getButtonClassName("long")}
-          >
-            long
-          </button>
-        </Tooltip>
+        <button
+          onClick={() => setTimeRange("long")}
+          className={getButtonClassName("long")}
+        >
+          long
+        </button>
       </div>
     </div>
   );

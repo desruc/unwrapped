@@ -27,9 +27,9 @@ export function SideNav() {
   }
 
   return (
-    <div className={widthClass}>
+    <div className={`${widthClass} flex-0`}>
       <nav
-        className={`${widthClass} fixed h-[100vh] flex flex-col bg-gray-800 p-2 items-center`}
+        className={`${widthClass} fixed top-0 left-0 outline-none h-[100vh] flex flex-col bg-gray-800 p-2 items-center`}
       >
         <div className="grid grid-cols-[1fr_auto] w-full border-b-2 border-b-gray-500 py-4">
           <h2 className={titleClassName}>unwrapped.</h2>

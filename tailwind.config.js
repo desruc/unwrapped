@@ -18,6 +18,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-figtree)", ...defaultTheme.fontFamily.sans]
+      },
+      flex: {
+        0: "0 0 auto"
       }
     }
   }
