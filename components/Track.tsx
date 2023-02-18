@@ -18,7 +18,7 @@ export function Track({ track }: TrackProps) {
   };
 
   return (
-    <li className="[&:not(:last-child)]:mb-2">
+    <li>
       <div
         className="grid gap-2 grid-cols-[auto_1fr_max-content] cursor-pointer rounded-md p-2 hover:bg-gray-900 transition-colors duration-200"
         onClick={onClick}

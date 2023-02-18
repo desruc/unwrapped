@@ -1,3 +1,7 @@
+import {
+  RecentlyPlayedSection,
+  RecentlyPlayedSectionLoading
+} from "@/components/dashboard/RecentlyPlayedSection";
 import { TopAlbumsSection } from "@/components/dashboard/TopAlbumsSection";
 import { TopArtistsSection } from "@/components/dashboard/TopArtistsSection";
 import { TopItemsLoading } from "@/components/dashboard/TopItemsLoading";
@@ -5,16 +9,26 @@ import {
   TopTrackSection,
   TopTracksSectionLoading
 } from "@/components/dashboard/TopTracksSection";
-import { getTopArtists, getTopTracks } from "@/lib/getAuthenticatedSpotifyApi";
+import {
+  getRecentlyPlayedTracks,
+  getTopArtists,
+  getTopTracks
+} from "@/lib/getAuthenticatedSpotifyApi";
 import { Suspense } from "react";
 
 export default async function Dashboard() {
   return (
     <main>
-      <Suspense fallback={<TopTracksSectionLoading />}>
-        {/* @ts-expect-error Async Server Component */}
-        <FeaturedTracks />
-      </Suspense>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
+        <Suspense fallback={<RecentlyPlayedSectionLoading />}>
+          {/* @ts-expect-error Async Server Component */}
+          <RecentlyPlayed />
+        </Suspense>
+        <Suspense fallback={<TopTracksSectionLoading />}>
+          {/* @ts-expect-error Async Server Component */}
+          <FeaturedTracks />
+        </Suspense>
+      </div>
       <Suspense fallback={<TopItemsLoading title="Top artists" />}>
         {/* @ts-expect-error Async Server Component */}
         <FeaturedArtists />
@@ -40,4 +54,9 @@ async function FeaturedArtists() {
 async function FeaturedAlbums() {
   const data = await getTopTracks();
   return <TopAlbumsSection data={data} albumsToShow={8} />;
+}
+
+async function RecentlyPlayed() {
+  const data = await getRecentlyPlayedTracks();
+  return <RecentlyPlayedSection tracks={data} />;
 }

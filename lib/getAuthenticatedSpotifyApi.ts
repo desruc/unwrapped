@@ -118,3 +118,9 @@ export async function getSimilarTracks(trackId: string) {
   const { body } = await spotifyApi.getRecommendations({ seed_tracks: [trackId] });
   return body.tracks;
 }
+
+export async function getRecentlyPlayedTracks() {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getMyRecentlyPlayedTracks({ limit: 5 });
+  return body.items;
+}
