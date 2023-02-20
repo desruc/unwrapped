@@ -115,7 +115,9 @@ export async function getTrack(trackId: string) {
 
 export async function getSimilarTracks(trackId: string) {
   const spotifyApi = await getAuthenticatedSpotifyApi();
-  const { body } = await spotifyApi.getRecommendations({ seed_tracks: [trackId] });
+  const { body } = await spotifyApi.getRecommendations({
+    seed_tracks: [trackId]
+  });
   return body.tracks;
 }
 
@@ -123,4 +125,16 @@ export async function getRecentlyPlayedTracks() {
   const spotifyApi = await getAuthenticatedSpotifyApi();
   const { body } = await spotifyApi.getMyRecentlyPlayedTracks({ limit: 5 });
   return body.items;
+}
+
+export async function getAudioAnalysis(trackId: string) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getAudioAnalysisForTrack(trackId);
+  return body;
+}
+
+export async function getAudioFeatures(trackId: string) {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getAudioFeaturesForTrack(trackId);
+  return body;
 }
