@@ -6,5 +6,5 @@ export default function Head() {
       <meta name="description" content="This is unwrapped" />
       <link rel="icon" href="/favicon.ico" />
     </>
-  )
+  );
 }
