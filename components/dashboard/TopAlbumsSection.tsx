@@ -20,7 +20,7 @@ export function TopAlbumsSection({ data, albumsToShow, hideFooter }: Props) {
   const albums = getTopAlbumsFromTracks(data[range]);
 
   return (
-    <section>
+    <section className="mb-12">
       <TopItemsHeader
         title="Top albums"
         timeRange={range}

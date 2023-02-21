@@ -4,6 +4,7 @@ specifiers:
   '@next/font': 13.0.7
   '@nivo/bar': ^0.80.0
   '@nivo/core': ^0.80.0
+  '@nivo/treemap': ^0.80.0
   '@types/lodash': ^4.14.191
   '@types/node': 18.11.17
   '@types/react': 18.0.26
@@ -31,6 +32,7 @@ dependencies:
   '@next/font': 13.0.7
   '@nivo/bar': 0.80.0_b6288a6d0743dbf3bda2c7b4d81f114a
   '@nivo/core': 0.80.0_react-dom@18.2.0+react@18.2.0
+  '@nivo/treemap': 0.80.0_b6288a6d0743dbf3bda2c7b4d81f114a
   clsx: 1.2.1
   lodash: 4.17.21
   next: 13.1.1_react-dom@18.2.0+react@18.2.0
@@ -363,6 +365,24 @@ packages:
       '@react-spring/web': 9.4.5_react-dom@18.2.0+react@18.2.0
     transitivePeerDependencies:
       - react
+      - react-dom
+    dev: false
+
+  /@nivo/treemap/0.80.0_b6288a6d0743dbf3bda2c7b4d81f114a:
+    resolution: {integrity: sha512-0jN0dtZYZTakpqCS4jWPTNkgSy+VUrTFdvM+jHxKYvIa8K7Y6SfxwkCj0+IcIE3czwXczI/ZZ/YJz1dccpXg2w==}
+    peerDependencies:
+      '@nivo/core': 0.80.0
+      react: '>= 16.14.0 < 19.0.0'
+    dependencies:
+      '@nivo/colors': 0.80.0_@nivo+core@0.80.0+react@18.2.0
+      '@nivo/core': 0.80.0_react-dom@18.2.0+react@18.2.0
+      '@nivo/tooltip': 0.80.0_b6288a6d0743dbf3bda2c7b4d81f114a
+      '@react-spring/web': 9.4.5_react-dom@18.2.0+react@18.2.0
+      d3-hierarchy: 1.1.9
+      lodash: 4.17.21
+      react: 18.2.0
+    transitivePeerDependencies:
+      - prop-types
       - react-dom
     dev: false
 
@@ -886,6 +906,10 @@ packages:
 
   /d3-format/1.4.5:
     resolution: {integrity: sha512-J0piedu6Z8iB6TbIGfZgDzfXxUFN3qQRMofy2oPdXzQibYGqPB/9iMcxr/TGalU+2RsyDO+U4f33id8tbnSRMQ==}
+    dev: false
+
+  /d3-hierarchy/1.1.9:
+    resolution: {integrity: sha512-j8tPxlqh1srJHAtxfvOUwKNYJkQuBFdM1+JAUfq6xqH5eAqf93L7oG1NVqDa4CpFZNvnNKtCYEUC8KY9yEn9lQ==}
     dev: false
 
   /d3-interpolate/2.0.1:
