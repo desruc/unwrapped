@@ -4,6 +4,7 @@ import {
 } from "@/components/dashboard/RecentlyPlayedSection";
 import { TopAlbumsSection } from "@/components/dashboard/TopAlbumsSection";
 import { TopArtistsSection } from "@/components/dashboard/TopArtistsSection";
+import { TopGenresSection } from "@/components/dashboard/TopGenres";
 import { TopItemsLoading } from "@/components/dashboard/TopItemsLoading";
 import {
   TopTrackSection,
@@ -37,6 +38,10 @@ export default async function Dashboard() {
         {/* @ts-expect-error Async Server Component */}
         <FeaturedAlbums />
       </Suspense>
+      <Suspense fallback={<TopItemsLoading title="Top albums" />}>
+        {/* @ts-expect-error Async Server Component */}
+        <TopGenres />
+      </Suspense>
     </main>
   );
 }
@@ -59,4 +64,9 @@ async function FeaturedAlbums() {
 async function RecentlyPlayed() {
   const data = await getRecentlyPlayedTracks();
   return <RecentlyPlayedSection tracks={data} />;
+}
+
+async function TopGenres() {
+  const data = await getTopArtists();
+  return <TopGenresSection artists={data} />;
 }

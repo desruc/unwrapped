@@ -22,7 +22,7 @@ export function TopItemsHeader({ title, timeRange, setTimeRange }: Props) {
     });
 
   return (
-    <div className="flex justify-between mb-4">
+    <div className="flex justify-between flex-wrap lg:flex-nowrap mb-4">
       {computedTitle}
       <div className="flex items-center">
         <button
