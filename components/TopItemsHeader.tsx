@@ -17,8 +17,8 @@ export function TopItemsHeader({ title, timeRange, setTimeRange }: Props) {
     );
 
   const getButtonClassName = (range: TimeRange) =>
-    clsx("mx-1 tracking-wide font-semibold transition-colors hover:text-green-400", {
-      "text-green-400": timeRange === range
+    clsx("mx-1 tracking-wide font-semibold transition-colors hover:text-green-500", {
+      "text-green-500": timeRange === range
     });
 
   return (

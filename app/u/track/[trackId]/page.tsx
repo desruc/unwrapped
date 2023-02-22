@@ -67,19 +67,19 @@ export default async function ArtistPage({ params }: Props) {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
         <section>
           <h2 className="text-2xl font-bold mb-4">Audio features</h2>
-          <div className="rounded-lg bg-gray-800 p-2 lg:pb-0 h-[360px]">
+          <div className="rounded-lg bg-card-500 p-2 lg:pb-0 h-[360px]">
             <TrackAudioFeatures audioFeatures={audioFeatures} />
           </div>
         </section>
         <section className="flex flex-col">
           <h2 className="text-2xl font-bold mb-4">Audio analysis</h2>
-          <div className="rounded-lg bg-gray-800 p-2 grow">
+          <div className="rounded-lg bg-card-500 p-2 grow">
             <TrackAudioAnalysis track={track} analysis={audioAnalysis} />
           </div>
         </section>
         <section className="lg:col-span-2">
           <h2 className="text-2xl font-bold mb-4">Recommendations</h2>
-          <div className="rounded-lg bg-gray-800 p-2">
+          <div className="rounded-lg bg-card-500 p-2">
             <ul className="lg:columns-2">
               {similarTracks.map((track) => (
                 <Track key={track.id} track={track} />

@@ -26,7 +26,7 @@ export function TopAlbumsSection({ data, albumsToShow, hideFooter }: Props) {
         timeRange={range}
         setTimeRange={setTimeRange}
       />
-      <div className="rounded-lg bg-gray-800">
+      <div className="rounded-lg bg-card-500">
         <TopItemsGrid
           items={transformAlbumsToTopItems(albums.slice(0, albumsToShow))}
         />

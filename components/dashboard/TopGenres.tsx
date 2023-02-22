@@ -38,7 +38,7 @@ export function TopGenresSection({ artists }: Props) {
         timeRange={range}
         setTimeRange={setTimeRange}
       />
-      <div className="rounded-lg bg-gray-800 py-2 px-1 lg:flex lg:justify-center">
+      <div className="rounded-lg bg-card-500 py-2 px-1 lg:flex lg:justify-center">
         <div className="h-[600px] w-[99%] hidden lg:block">
           <ResponsiveTreeMap
             data={topGenres}

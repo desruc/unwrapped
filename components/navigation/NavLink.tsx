@@ -18,9 +18,9 @@ export function NavLink({ href, icon, label, open }: Props) {
   const active = pathname === href;
 
   const className = clsx(
-    "flex items-center [&:not(:first-child)]:mt-2 pr-2 w-full rounded-lg transition-all hover:bg-gray-900 hover:shadow-md hover:font-semibold",
+    "flex items-center [&:not(:first-child)]:mt-2 pr-2 w-full rounded-lg transition-all hover:bg-body-500 hover:shadow-md hover:font-semibold hover:text-white",
     {
-      "bg-gray-900 shadow-md text-green-400": active
+      "bg-body-500 shadow-md text-white": active
     }
   );
 

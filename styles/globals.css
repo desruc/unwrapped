@@ -4,13 +4,17 @@
 
 @layer base {
     body {
-        @apply bg-gray-900;
-        @apply text-gray-400;
+        @apply bg-body-500;
+        @apply text-paragraph;
         @apply font-sans;
     }
 
     a {
         @apply transition-colors;
-        @apply hover:text-green-400;
+        @apply hover:text-green-500;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-white;
     }
 }

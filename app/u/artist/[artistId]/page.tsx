@@ -45,7 +45,7 @@ async function PopularTracks({ artistId }: PopularTracksProps) {
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-4">Popular</h2>
-      <div className="rounded-lg bg-gray-800 p-2 lg:pb-0">
+      <div className="rounded-lg bg-card-500 p-2 lg:pb-0">
         <ul className="lg:columns-2">
           {tracks.map((track) => (
             <Track key={track.id} track={track} />
@@ -107,7 +107,7 @@ function TracksLoading() {
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-4">Popular</h2>
-      <div className="rounded-lg bg-gray-800">
+      <div className="rounded-lg bg-card-500">
         <div className="grid grid-cols-2 gap-2 p-2 mb-12">
           {[...Array(10)].map((_, i) => (
             <div key={`loading-${i}`} className="h-[65px] w-full bg-slate-600" />

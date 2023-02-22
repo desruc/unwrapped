@@ -19,17 +19,17 @@ export function AlbumTrack({ track }: TrackProps) {
   return (
     <li className="[&:not(:last-child)]:mb-2">
       <div
-        className="grid gap-2 grid-cols-[auto_1fr_max-content] cursor-pointer rounded-md p-2 hover:bg-gray-100 transition-colors duration-200"
+        className="grid gap-2 grid-cols-[auto_1fr_max-content] cursor-pointer rounded-md p-2 hover:bg-card-500 transition-colors duration-200"
         onClick={onClick}
       >
-        <div className="flex items-center pr-2">{track.track_number}</div>
+        <div className="flex items-center pr-2 text-white">{track.track_number}</div>
         <div className="overflow-hidden">
-          <p className="font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
+          <p className="font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap text-white">
             {track.name}
           </p>
           <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">
             {track.explicit && (
-              <span className="p-1 bg-gray-800 rounded-md mr-2">E</span>
+              <span className="p-1 bg-card-500 rounded-md mr-2">E</span>
             )}
             {track.artists &&
               track.artists.map((artist, i) => (

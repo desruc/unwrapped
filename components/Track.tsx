@@ -36,7 +36,7 @@ export function Track({ track }: TrackProps) {
           />
         </div>
         <div className="overflow-hidden">
-          <p className="font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
+          <p className="text-white font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
             {track.name}
           </p>
           <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">
