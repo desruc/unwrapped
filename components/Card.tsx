@@ -14,8 +14,8 @@ interface Props {
 
 export function Card({ image, title, description, href, roundImage }: Props) {
   return (
-    <Link href={href} title={title}>
-      <div className="p-4 rounded-md bg-card-500">
+    <Link href={href} title={title} className="hover:text-inherit">
+      <div className="p-4 rounded-md bg-card-500 hover:bg-card-400 transition-all">
         <div className="relative pb-[100%] mb-2">
           <Image
             src={image.url}
@@ -44,12 +44,12 @@ export function CardLoading({ roundImage }: CardLoadingProps) {
   return (
     <div className="p-4 rounded-md bg-card-500">
       <div
-        className={`pb-[100%] mb-2 bg-gray-600 ${
+        className={`pb-[100%] mb-2 bg-card-400 ${
           roundImage ? "rounded-full" : "rounded-sm"
         }`}
       />
-      <div className="mb-1 bg-slate-600 h-[24px] rounded-sm" />
-      <div className="mb- bg-slate-600 h-[16px] rounded-sm" />
+      <div className="mb-1 bg-card-400 h-[24px] rounded-sm" />
+      <div className="mb- bg-card-400 h-[16px] rounded-sm" />
     </div>
   );
 }

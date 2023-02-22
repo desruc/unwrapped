@@ -28,7 +28,7 @@ export function RecentlyPlayedSectionLoading() {
       <div className="rounded-lg bg-card-500">
         <div className="grid grid-cols-1 gap-2 p-2 mb-12">
           {[...Array(5)].map((_, i) => (
-            <div key={`loading-${i}`} className="h-[60px] w-full bg-gray-400" />
+            <div key={`loading-${i}`} className="h-[60px] w-full bg-card-400" />
           ))}
         </div>
       </div>

@@ -20,7 +20,7 @@ export function Track({ track }: TrackProps) {
   return (
     <li>
       <div
-        className="grid gap-2 grid-cols-[auto_1fr_max-content] cursor-pointer rounded-md p-2 hover:bg-gray-900 transition-colors duration-200"
+        className="grid gap-2 grid-cols-[auto_1fr_max-content] cursor-pointer rounded-md p-2 hover:bg-card-400 transition-colors duration-200"
         onClick={onClick}
       >
         <div className="relative w-[50px] h-[50px]">
@@ -41,7 +41,7 @@ export function Track({ track }: TrackProps) {
           </p>
           <div className="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs">
             {track.explicit && (
-              <span className="p-1 bg-gray-900 rounded-md mr-2">E</span>
+              <span className="p-1 bg-card-900 rounded-md mr-2">E</span>
             )}
             {track.artists &&
               track.artists.map((artist, i) => (

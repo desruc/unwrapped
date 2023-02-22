@@ -48,7 +48,7 @@ export function UserButton({ drawerOpen }: Props) {
   return (
     <div
       title="User"
-      className="grid grid-cols-[auto_1fr] gap-3 w-full px-2 py-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-900 hover:shadow-md"
+      className="grid grid-cols-[auto_1fr] gap-3 w-full px-2 py-3 rounded-lg cursor-pointer transition-colors hover:bg-body-500 hover:shadow-md"
     >
       <div className="flex items-center">
         <div className={imageWrapClassName}>

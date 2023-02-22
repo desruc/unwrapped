@@ -110,7 +110,7 @@ function TracksLoading() {
       <div className="rounded-lg bg-card-500">
         <div className="grid grid-cols-2 gap-2 p-2 mb-12">
           {[...Array(10)].map((_, i) => (
-            <div key={`loading-${i}`} className="h-[65px] w-full bg-slate-600" />
+            <div key={`loading-${i}`} className="h-[65px] w-full bg-card-400" />
           ))}
         </div>
       </div>

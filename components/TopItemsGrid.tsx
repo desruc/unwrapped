@@ -74,7 +74,7 @@ export function TopItemsGridLoading({ items = 8 }: { items?: number }) {
       {[...Array(items)].map((_, i) => (
         <div
           key={`loading-${i}`}
-          className="h-[0px] pb-[100%] w-full bg-gray-400 rounded-md"
+          className="h-[0px] pb-[100%] w-full bg-card-400 rounded-md"
         />
       ))}
     </div>
