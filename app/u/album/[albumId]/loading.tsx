@@ -1,7 +1,7 @@
 export default async function AlbumLoading() {
   return (
     <main>
-      <section className="grid grid-cols-[auto_1fr] animate-pulse gap-6 mb-8">
+      <section className="grid grid-cols-1 md:grid-cols-[auto_1fr] animate-pulse gap-6 mb-8">
         <div className="bg-card-400 min-h-[300px] min-w-[300px]" />
         <div className="flex flex-col justify-end">
           <div className="bg-card-400 w-[40px] h-[16px] mb-2" />

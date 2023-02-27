@@ -108,7 +108,7 @@ function TracksLoading() {
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-4">Popular</h2>
       <div className="rounded-lg bg-card-500">
-        <div className="grid grid-cols-2 gap-2 p-2 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2 mb-12">
           {[...Array(10)].map((_, i) => (
             <div key={`loading-${i}`} className="h-[65px] w-full bg-card-400" />
           ))}

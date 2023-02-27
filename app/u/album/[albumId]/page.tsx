@@ -21,7 +21,7 @@ export default async function AlbumPage({ params }: Props) {
 
   return (
     <main>
-      <section className="grid grid-cols-[auto_1fr] gap-6 mb-8">
+      <section className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 mb-8">
         <Image
           src={album.images[1].url}
           width={album.images[1].width}

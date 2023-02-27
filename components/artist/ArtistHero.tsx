@@ -18,7 +18,7 @@ export function ArtistHero({ artist }: Props) {
   const image = artist.images.find((image) => image.height === highestRes);
 
   return (
-    <section className="grid grid-cols-[auto_1fr] gap-6 mb-8">
+    <section className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 mb-8">
       {image && (
         <Image
           src={image.url}

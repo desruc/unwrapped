@@ -1,6 +1,7 @@
 "use client";
 
 import { signOut } from "next-auth/react";
+import { MdOutlineLogout } from "react-icons/md";
 
 export function LogoutButton() {
   async function onLogout() {
@@ -9,7 +10,9 @@ export function LogoutButton() {
 
   return (
     <div>
-      <button onClick={onLogout}>Logout</button>
+      <button className="mt-2 text-2xl" onClick={onLogout} title="Logout">
+        <MdOutlineLogout />
+      </button>
     </div>
   );
 }

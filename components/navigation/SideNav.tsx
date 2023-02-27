@@ -12,9 +12,10 @@ import {
 import { useState } from "react";
 import { NavLink } from "./NavLink";
 import { UserButton } from "./UserButton";
+import { LogoutButton } from "../auth/LogoutButton";
 
 export function SideNav() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const widthClass = open ? "w-[200px]" : "w-[56px]";
 
@@ -35,11 +36,14 @@ export function SideNav() {
           <h2 className={titleClassName}>unwrapped.</h2>
           <button
             onClick={toggleDrawer}
-            className="text-2xl p-2 rounded-lg transition-colors hover:bg-gray-900 hover:shadow-md"
+            className="hidden md:block text-2xl p-2 rounded-lg transition-colors hover:bg-gray-900 hover:shadow-md"
             title="Toggle drawer"
           >
             {open ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}
           </button>
+          <h2 className="md:hidden text-center text-2xl">
+            u<span className="text-green-500">.</span>
+          </h2>
         </div>
         <div className="flex flex-col flex-grow mt-4 w-full">
           <NavLink
@@ -68,6 +72,9 @@ export function SideNav() {
           />
         </div>
         <UserButton drawerOpen={open} />
+        <div className="md:hidden">
+          <LogoutButton />
+        </div>
       </nav>
     </div>
   );

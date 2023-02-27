@@ -30,7 +30,7 @@ export function UserButton({ drawerOpen }: Props) {
     getProfile();
   }, [session]);
 
-  if (!profile) return <div>Loading</div>;
+  if (!profile) return <UserButtonLoading drawerOpen={drawerOpen} />;
 
   const image = profile?.images?.[0]?.url ?? "placeholder image";
   const displayName = profile?.display_name;
@@ -68,6 +68,29 @@ export function UserButton({ drawerOpen }: Props) {
           <span className={userNameClassName}>{displayName}</span>
         </div>
       )}
+    </div>
+  );
+}
+
+function UserButtonLoading({ drawerOpen }: Props) {
+  const imageWrapClassName = clsx("rounded-full bg-body-500", {
+    "w-[24px] h-[24px]": !drawerOpen,
+    "w-[40px] h-[40px]": drawerOpen
+  });
+
+  const userNameClassName = clsx("rounded-md bg-body-500", { hidden: !drawerOpen });
+
+  return (
+    <div
+      title="User"
+      className="grid grid-cols-[auto_1fr] gap-3 w-full animate-pulse"
+    >
+      <div className="flex items-center">
+        <div className={imageWrapClassName} />
+      </div>
+      <div className="flex items-center">
+        <div className={userNameClassName} />
+      </div>
     </div>
   );
 }

@@ -25,6 +25,7 @@ export function Card({ image, title, description, href, roundImage }: Props) {
             style={{ objectFit: "cover" }}
             placeholder="blur"
             blurDataURL={getBlurDataUrl()}
+            sizes="50%"
           />
         </div>
         <h3 className="font-semibold mb-1 overflow-hidden overflow-ellipsis whitespace-nowrap">
