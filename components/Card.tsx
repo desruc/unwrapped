@@ -15,13 +15,13 @@ interface Props {
 export function Card({ image, title, description, href, roundImage }: Props) {
   return (
     <Link href={href} title={title} className="hover:text-inherit">
-      <div className="p-4 rounded-md bg-card-500 hover:bg-card-400 transition-all">
+      <div className="p-4 rounded-lg bg-card-500 hover:bg-card-400 transition-all">
         <div className="relative pb-[100%] mb-2">
           <Image
             src={image.url}
             fill
             alt={title}
-            className={roundImage ? "rounded-full" : "rounded-sm"}
+            className={roundImage ? "rounded-full" : "rounded-md"}
             style={{ objectFit: "cover" }}
             placeholder="blur"
             blurDataURL={getBlurDataUrl()}
@@ -42,14 +42,14 @@ interface CardLoadingProps {
 
 export function CardLoading({ roundImage }: CardLoadingProps) {
   return (
-    <div className="p-4 rounded-md bg-card-500">
+    <div className="animate-pulse p-4 rounded-md bg-card-500">
       <div
         className={`pb-[100%] mb-2 bg-card-400 ${
-          roundImage ? "rounded-full" : "rounded-sm"
+          roundImage ? "rounded-full" : "rounded-md"
         }`}
       />
-      <div className="mb-1 bg-card-400 h-[24px] rounded-sm" />
-      <div className="mb- bg-card-400 h-[16px] rounded-sm" />
+      <div className="mb-1 bg-card-400 h-[24px] w-[60%] rounded-md" />
+      <div className="mb- bg-card-400 h-[16px] w-[30%] rounded-md" />
     </div>
   );
 }

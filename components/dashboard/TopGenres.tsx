@@ -82,3 +82,14 @@ export function TopGenresSection({ artists }: Props) {
     </section>
   );
 }
+
+export function TopGenresLoading() {
+  return (
+    <section>
+      <h2 className="text-2xl font-bold">Top genres</h2>
+      <div className="rounded-lg bg-card-500 p-2 animate-pulse">
+        <div className="bg-card-400 h-[600px] rounded-md" />
+      </div>
+    </section>
+  );
+}

@@ -23,10 +23,10 @@ export function RecentlyPlayedSection({ tracks }: Props) {
 
 export function RecentlyPlayedSectionLoading() {
   return (
-    <section className="mb-12">
+    <section className="animate-pulse mb-12">
       <h2 className="text-2xl font-bold mb-4">Top tracks</h2>
       <div className="rounded-lg bg-card-500">
-        <div className="grid grid-cols-1 gap-2 p-2 mb-12">
+        <div className="grid grid-cols-1 gap-2 p-2">
           {[...Array(5)].map((_, i) => (
             <div key={`loading-${i}`} className="h-[60px] w-full bg-card-400" />
           ))}

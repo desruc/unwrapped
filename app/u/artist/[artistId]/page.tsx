@@ -45,7 +45,7 @@ async function PopularTracks({ artistId }: PopularTracksProps) {
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-4">Popular</h2>
-      <div className="rounded-lg bg-card-500 p-2 lg:pb-0">
+      <div className="rounded-lg bg-card-500 p-2">
         <ul className="lg:columns-2">
           {tracks.map((track) => (
             <Track key={track.id} track={track} />

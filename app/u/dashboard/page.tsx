@@ -4,7 +4,10 @@ import {
 } from "@/components/dashboard/RecentlyPlayedSection";
 import { TopAlbumsSection } from "@/components/dashboard/TopAlbumsSection";
 import { TopArtistsSection } from "@/components/dashboard/TopArtistsSection";
-import { TopGenresSection } from "@/components/dashboard/TopGenres";
+import {
+  TopGenresSection,
+  TopGenresLoading
+} from "@/components/dashboard/TopGenres";
 import { TopItemsLoading } from "@/components/dashboard/TopItemsLoading";
 import {
   TopTrackSection,
@@ -20,7 +23,7 @@ import { Suspense } from "react";
 export default async function Dashboard() {
   return (
     <main>
-      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
+      <div className="grid grid-cols-1 lg:gap-4 lg:grid-cols-3">
         <Suspense fallback={<RecentlyPlayedSectionLoading />}>
           {/* @ts-expect-error Async Server Component */}
           <RecentlyPlayed />
@@ -38,7 +41,7 @@ export default async function Dashboard() {
         {/* @ts-expect-error Async Server Component */}
         <FeaturedAlbums />
       </Suspense>
-      <Suspense fallback={<TopItemsLoading title="Top albums" />}>
+      <Suspense fallback={<TopGenresLoading />}>
         {/* @ts-expect-error Async Server Component */}
         <TopGenres />
       </Suspense>
