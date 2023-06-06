@@ -1,5 +1,5 @@
 import AuthContext from "@/components/auth/AuthContext";
-import { Figtree } from "@next/font/google";
+import { Figtree } from "next/font/google";
 
 const figtree = Figtree({
   variable: "--font-figtree",
