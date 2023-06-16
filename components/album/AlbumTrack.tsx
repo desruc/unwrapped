@@ -13,7 +13,7 @@ export function AlbumTrack({ track }: TrackProps) {
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`u/track/${track.id}`);
+    router.push(`/u/track/${track.id}`);
   };
 
   return (
