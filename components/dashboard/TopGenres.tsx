@@ -1,25 +1,19 @@
 "use client";
 
 import type { TimeRange } from "@/lib/getAuthenticatedSpotifyApi";
-import { ResponsiveTreeMap } from "@nivo/treemap";
 import { capitalize, countBy } from "lodash";
 import { useState } from "react";
+import { Chip } from "../Chip";
 import { TopItemsHeader } from "../TopItemsHeader";
 
 function getTopGenres(artists: SpotifyApi.ArtistObjectFull[]) {
   const genres = artists.reduce((acc, artist) => {
-    return [...acc, ...artist.genres];
+    return [...acc, ...artist.genres.map((genre) => capitalize(genre))];
   }, [] as string[]);
 
   const counts = countBy(genres);
 
-  return {
-    name: "genres",
-    children: Object.entries(counts).map(([name, loc]) => ({
-      name: capitalize(name),
-      loc
-    }))
-  };
+  return Object.entries(counts).sort((a, b) => b[1] - a[1]);
 }
 
 interface Props {
@@ -38,38 +32,16 @@ export function TopGenresSection({ artists }: Props) {
         timeRange={range}
         setTimeRange={setTimeRange}
       />
-      <div className="rounded-lg bg-card-500 py-2 px-1 lg:flex lg:justify-center">
-        <div className="h-[600px] w-[99%] hidden lg:block">
-          <ResponsiveTreeMap
-            data={topGenres}
-            identity="name"
-            value="loc"
-            label={function ({ id }) {
-              return id.length > 10 ? `${id.slice(0, 10)}...` : id;
-            }}
-            enableParentLabel={false}
-            colors={{ scheme: "greens" }}
-            labelSkipSize={12}
-            borderWidth={0}
-            nodeOpacity={0.5}
-            animate={false}
-            labelTextColor={{
-              from: "color",
-              modifiers: [["darker", 3]]
-            }}
-            tooltip={({ node }) => (
-              <div className="p-2 rounded-md bg-gray-900">
-                <strong>
-                  {node.id}: {node.formattedValue}
-                </strong>
-              </div>
-            )}
-          />
-        </div>
-        <ul className="lg:hidden">
-          {topGenres.children.slice(0, 20).map(({ name }) => (
-            <li key={name}>
-              <span className="font-semibold">{name}</span>
+      <div className="rounded-lg bg-card-500 py-2 px-1">
+        <ul className="flex flex-wrap">
+          {topGenres.slice(0, 5).map(([label]) => (
+            <li key={label}>
+              <Chip text={label} colorWeight={500} size="large" />
+            </li>
+          ))}
+          {topGenres.slice(5).map(([label]) => (
+            <li key={label}>
+              <Chip key={label} text={label} colorWeight={200} />
             </li>
           ))}
         </ul>
