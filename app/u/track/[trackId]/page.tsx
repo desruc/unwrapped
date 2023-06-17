@@ -11,6 +11,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatDuration } from "utils/formatDuration";
 import { getBlurDataUrl } from "utils/getBlurDataUrl";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "unwrapped | track"
+};
 
 interface Props {
   params: { trackId: string };

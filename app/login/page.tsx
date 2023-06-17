@@ -1,5 +1,9 @@
 import { LoginButton } from "@/components/auth/LoginButton";
-import { Footer } from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "unwrapped | login"
+};
 
 export default function LoginPage() {
   return (

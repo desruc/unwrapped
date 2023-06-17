@@ -1,4 +1,5 @@
 import { getAlbum } from "@/lib/getAuthenticatedSpotifyApi";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +9,10 @@ import { groupAlbumTracksByDisc } from "utils/groupAlbumTracksByDisc";
 import { MdOutlineAlbum } from "react-icons/md";
 import { AlbumTrack } from "@/components/album/AlbumTrack";
 import { getBlurDataUrl } from "utils/getBlurDataUrl";
+
+export const metadata: Metadata = {
+  title: "unwrapped | album"
+};
 
 interface Props {
   params: { albumId: string };

@@ -8,7 +8,12 @@ import {
   getRelatedArtists
 } from "@/lib/getAuthenticatedSpotifyApi";
 import { capitalize } from "lodash";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "unwrapped | artist"
+};
 
 interface Props {
   params: { artistId: string };

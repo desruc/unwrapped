@@ -18,7 +18,12 @@ import {
   getTopArtists,
   getTopTracks
 } from "@/lib/getAuthenticatedSpotifyApi";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "unwrapped | dashboard"
+};
 
 export default async function Dashboard() {
   return (
