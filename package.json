@@ -12,6 +12,8 @@
     "@nivo/bar": "^0.80.0",
     "@nivo/core": "^0.80.0",
     "clsx": "^1.2.1",
+    "downloadjs": "^1.4.7",
+    "html-to-image": "^1.11.11",
     "lodash": "^4.17.21",
     "next": "^13.4.6",
     "next-auth": "^4.22.1",
@@ -21,6 +23,7 @@
     "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
+    "@types/downloadjs": "^1.4.3",
     "@types/lodash": "^4.14.195",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",

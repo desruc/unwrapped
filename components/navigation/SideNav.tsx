@@ -7,7 +7,8 @@ import {
   MdOutlineDashboard,
   MdSentimentVerySatisfied,
   MdOutlineAlbum,
-  MdOutlineLibraryMusic
+  MdOutlineLibraryMusic,
+  MdOutlineIosShare
 } from "react-icons/md";
 import { useState } from "react";
 import { NavLink } from "./NavLink";
@@ -68,6 +69,12 @@ export function SideNav() {
             href="/u/top/tracks"
             icon={<MdOutlineLibraryMusic />}
             label="Top tracks"
+            open={open}
+          />
+          <NavLink
+            href="/u/shareable"
+            icon={<MdOutlineIosShare />}
+            label="Share"
             open={open}
           />
         </div>
