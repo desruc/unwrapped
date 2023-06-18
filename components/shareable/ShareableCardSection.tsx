@@ -5,11 +5,11 @@ import { useState } from "react";
 import { getTopAlbumsFromTracks } from "utils/getTopAlbums";
 import { RangeButtons } from "../RangeButtons";
 import { CardType, CardTypeButtons } from "./CardTypeButtons";
-import DownloadImageButton from "./DownloadImageButton";
 import { SummaryCard } from "./cards/SummaryCard";
 import { ArtistCard } from "./cards/ArtistCard";
 import { TracksCard } from "./cards/TracksCard";
 import { AlbumCard } from "./cards/AlbumCard";
+import { downloadHtmlAsImage } from "utils/downloadHtmlAsImage";
 
 const SHAREABLE_ELEMENT_ID = "unwrapped-shareable";
 const FILENAME_PREFIX = "unwrapped";
@@ -50,6 +50,8 @@ export function ShareableCardSection({ user, artists, tracks }: Props) {
     tracks: <TracksCard {...commonCardProps} tracks={tracks[range].slice(0, 10)} />
   };
 
+  const imageFilename = `${FILENAME_PREFIX}-${cardType}-${range}`;
+
   return (
     <main>
       <section className="mb-12 flex flex-col justify-center items-center">
@@ -57,11 +59,14 @@ export function ShareableCardSection({ user, artists, tracks }: Props) {
           <div className="flex flex-col justify-center items-center">
             <CardTypeButtons cardType={cardType} setCardType={setCardType} />
             <RangeButtons timeRange={range} setTimeRange={setTimeRange} />
-            <DownloadImageButton
-              elementId={SHAREABLE_ELEMENT_ID}
-              filename={`${FILENAME_PREFIX}-${cardType}-${range}`}
-              label="Download image"
-            />
+            <button
+              className="rounded-md font-bold bg-green-600 py-2 px-4 text-white mt-4"
+              onClick={() =>
+                downloadHtmlAsImage(SHAREABLE_ELEMENT_ID, imageFilename)
+              }
+            >
+              Download image
+            </button>
           </div>
         </div>
         {cards[cardType]}
