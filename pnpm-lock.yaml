@@ -14,6 +14,12 @@ dependencies:
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
+  downloadjs:
+    specifier: ^1.4.7
+    version: 1.4.7
+  html-to-image:
+    specifier: ^1.11.11
+    version: 1.11.11
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -37,6 +43,9 @@ dependencies:
     version: 5.0.2
 
 devDependencies:
+  '@types/downloadjs':
+    specifier: ^1.4.3
+    version: 1.4.3
   '@types/lodash':
     specifier: ^4.14.195
     version: 4.14.195
@@ -494,6 +503,10 @@ packages:
     dependencies:
       tslib: 2.5.3
     dev: false
+
+  /@types/downloadjs@1.4.3:
+    resolution: {integrity: sha512-MjJepFle/tLtT2/jmDNth6ZnwWzEhm40L+olE5HKR70ISUCfgT55eqreeHldAzFLY2HDUGsn8zgyto8KygN0CA==}
+    dev: true
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -1091,6 +1104,10 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /downloadjs@1.4.7:
+    resolution: {integrity: sha512-LN1gO7+u9xjU5oEScGFKvXhYf7Y/empUIIEAGBs1LzUq/rg5duiDrkuH5A2lQGd5jfMOb9X9usDa2oVXwJ0U/Q==}
+    dev: false
 
   /electron-to-chromium@1.4.432:
     resolution: {integrity: sha512-yz3U/khQgAFT2HURJA3/F4fKIyO2r5eK09BQzBZFd6BvBSSaRuzKc2ZNBHtJcO75/EKiRYbVYJZ2RB0P4BuD2g==}
@@ -1814,6 +1831,10 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+
+  /html-to-image@1.11.11:
+    resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
+    dev: false
 
   /human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}

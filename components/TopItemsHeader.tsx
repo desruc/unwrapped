@@ -1,11 +1,8 @@
-import type { TimeRange } from "@/lib/getAuthenticatedSpotifyApi";
-import clsx from "clsx";
 import type { ReactNode } from "react";
+import { RangeButtonProps, RangeButtons } from "./RangeButtons";
 
-interface Props {
+interface Props extends RangeButtonProps {
   title?: string | ReactNode;
-  timeRange: TimeRange;
-  setTimeRange: (range: TimeRange) => void;
 }
 
 export function TopItemsHeader({ title, timeRange, setTimeRange }: Props) {
@@ -16,36 +13,10 @@ export function TopItemsHeader({ title, timeRange, setTimeRange }: Props) {
       title
     );
 
-  const getButtonClassName = (range: TimeRange) =>
-    clsx("mx-1 tracking-wide font-semibold transition-colors hover:text-green-500", {
-      "text-green-500": timeRange === range
-    });
-
   return (
     <div className="flex justify-between flex-wrap lg:flex-nowrap mb-4">
       {computedTitle}
-      <div className="flex items-center">
-        <button
-          onClick={() => setTimeRange("short")}
-          className={getButtonClassName("short")}
-        >
-          short
-        </button>
-        |
-        <button
-          onClick={() => setTimeRange("medium")}
-          className={getButtonClassName("medium")}
-        >
-          medium
-        </button>
-        |
-        <button
-          onClick={() => setTimeRange("long")}
-          className={getButtonClassName("long")}
-        >
-          long
-        </button>
-      </div>
+      <RangeButtons timeRange={timeRange} setTimeRange={setTimeRange} />
     </div>
   );
 }

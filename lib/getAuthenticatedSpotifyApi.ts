@@ -138,3 +138,9 @@ export async function getAudioFeatures(trackId: string) {
   const { body } = await spotifyApi.getAudioFeaturesForTrack(trackId);
   return body;
 }
+
+export async function getMe() {
+  const spotifyApi = await getAuthenticatedSpotifyApi();
+  const { body } = await spotifyApi.getMe();
+  return body;
+}

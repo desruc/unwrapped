@@ -28,3 +28,17 @@ export function transformAlbumsToTopItems(
     };
   });
 }
+
+export function transformTracksToTopItems(tracks: SpotifyApi.TrackObjectFull[]) {
+  return tracks.map((t) => {
+    const sortedImages = sortBy(t.album.images, "height");
+
+    return {
+      id: t.id,
+      title: t.name,
+      subtitle: t.artists.map((a) => a.name).join(", "),
+      imgSrc: sortedImages[sortedImages.length - 1].url,
+      href: `/u/track/${t.id}`
+    };
+  });
+}
