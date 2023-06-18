@@ -7,7 +7,7 @@ import {
 
 export default async function Shareable() {
   const me = await getMe();
-  const topArtists = await getTopArtists(5);
+  const topArtists = await getTopArtists();
   const topTracks = await getTopTracks();
 
   return <ShareableCardSection user={me} artists={topArtists} tracks={topTracks} />;

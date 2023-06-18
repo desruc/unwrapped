@@ -8,14 +8,35 @@ import { getBlurDataUrl } from "utils/getBlurDataUrl";
 
 interface TrackProps {
   track: SpotifyApi.TrackObjectFull | SpotifyApi.RecommendationTrackObject;
+  useImgTag?: boolean;
 }
 
-export function Track({ track }: TrackProps) {
+export function Track({ track, useImgTag }: TrackProps) {
   const router = useRouter();
 
   const onClick = () => {
     router.push(`/u/track/${track.id}`);
   };
+
+  const commonImageProps = {
+    alt: track.artists[0].name,
+    src: track.album.images[0].url,
+    sizes: "100%",
+    className: "rounded-sm"
+  };
+
+  const imgJsx = useImgTag ? (
+    // eslint-disable-next-line
+    <img {...commonImageProps} />
+  ) : (
+    <Image
+      {...commonImageProps}
+      style={{ objectFit: "cover" }}
+      fill
+      blurDataURL={getBlurDataUrl()}
+      placeholder="blur"
+    />
+  );
 
   return (
     <li>
@@ -23,18 +44,7 @@ export function Track({ track }: TrackProps) {
         className="grid gap-2 grid-cols-[auto_1fr_max-content] cursor-pointer rounded-md p-2 hover:bg-card-400 transition-colors duration-200"
         onClick={onClick}
       >
-        <div className="relative w-[50px] h-[50px]">
-          <Image
-            alt={track.artists[0].name}
-            src={track.album.images[0].url}
-            fill
-            sizes="100%"
-            style={{ objectFit: "cover" }}
-            className="rounded-sm"
-            placeholder="blur"
-            blurDataURL={getBlurDataUrl()}
-          />
-        </div>
+        <div className="relative w-[50px] h-[50px]">{imgJsx}</div>
         <div className="overflow-hidden">
           <p className="text-white font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">
             {track.name}
