@@ -52,7 +52,9 @@ export function TrackAudioFeatures({ audioFeatures }: Props) {
       padding={0.3}
       layout="horizontal"
       theme={{
-        textColor: "#9ca3af"
+        text: {
+          fill: "#9ca3af"
+        }
       }}
       colors={{ scheme: "yellow_green" }}
       indexBy="id"

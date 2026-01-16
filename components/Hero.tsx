@@ -11,7 +11,6 @@ async function getData() {
 export async function Hero() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {/* @ts-expect-error Async Server Component */}
       <HeroInner />
     </Suspense>
   );

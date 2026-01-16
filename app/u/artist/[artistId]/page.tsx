@@ -16,26 +16,24 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-  params: { artistId: string };
+  params: Promise<{ artistId: string }>;
 }
 
 export default async function ArtistPage({ params }: Props) {
-  const artist = await getArtist(params.artistId);
+  const { artistId } = await params;
+  const artist = await getArtist(artistId);
 
   return (
     <main>
       <ArtistHero artist={artist} />
       <Suspense fallback={<TracksLoading />}>
-        {/* @ts-expect-error Async Server Component */}
-        <PopularTracks artistId={params.artistId} />
+        <PopularTracks artistId={artistId} />
       </Suspense>
       <Suspense fallback={<AlbumsLoading />}>
-        {/* @ts-expect-error Async Server Component */}
-        <Albums artistId={params.artistId} />
+        <Albums artistId={artistId} />
       </Suspense>
       <Suspense fallback={<ArtistsLoading />}>
-        {/* @ts-expect-error Async Server Component */}
-        <RelatedArtists artistId={params.artistId} />
+        <RelatedArtists artistId={artistId} />
       </Suspense>
     </main>
   );
