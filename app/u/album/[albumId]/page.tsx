@@ -15,11 +15,12 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-  params: { albumId: string };
+  params: Promise<{ albumId: string }>;
 }
 
 export default async function AlbumPage({ params }: Props) {
-  const album = await getAlbum(params.albumId);
+  const { albumId } = await params;
+  const album = await getAlbum(albumId);
 
   const groupedTracks = groupAlbumTracksByDisc(album.tracks.items);
   const isSingleDisc = Object.keys(groupedTracks).length === 1;

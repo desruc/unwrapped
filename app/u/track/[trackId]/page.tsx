@@ -18,14 +18,15 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-  params: { trackId: string };
+  params: Promise<{ trackId: string }>;
 }
 
 export default async function ArtistPage({ params }: Props) {
-  const track = await getTrack(params.trackId);
-  const similarTracks = await getSimilarTracks(params.trackId);
-  const audioFeatures = await getAudioFeatures(params.trackId);
-  const audioAnalysis = await getAudioAnalysis(params.trackId);
+  const { trackId } = await params;
+  const track = await getTrack(trackId);
+  const similarTracks = await getSimilarTracks(trackId);
+  const audioFeatures = await getAudioFeatures(trackId);
+  const audioAnalysis = await getAudioAnalysis(trackId);
 
   return (
     <main>

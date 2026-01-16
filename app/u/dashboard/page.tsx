@@ -30,24 +30,19 @@ export default async function Dashboard() {
     <main>
       <div className="grid grid-cols-1 lg:gap-4 lg:grid-cols-3">
         <Suspense fallback={<RecentlyPlayedSectionLoading />}>
-          {/* @ts-expect-error Async Server Component */}
           <RecentlyPlayed />
         </Suspense>
         <Suspense fallback={<TopTracksSectionLoading />}>
-          {/* @ts-expect-error Async Server Component */}
           <FeaturedTracks />
         </Suspense>
       </div>
       <Suspense fallback={<TopItemsLoading title="Top artists" />}>
-        {/* @ts-expect-error Async Server Component */}
         <FeaturedArtists />
       </Suspense>
       <Suspense fallback={<TopItemsLoading title="Top albums" />}>
-        {/* @ts-expect-error Async Server Component */}
         <FeaturedAlbums />
       </Suspense>
       <Suspense fallback={<TopGenresLoading />}>
-        {/* @ts-expect-error Async Server Component */}
         <TopGenres />
       </Suspense>
     </main>
